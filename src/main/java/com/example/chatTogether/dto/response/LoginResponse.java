@@ -8,7 +8,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SignupResponse {
+public class LoginResponse {
     private String response;
     private String token;
 }
