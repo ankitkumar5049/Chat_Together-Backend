@@ -47,7 +47,7 @@ public class AuthService {
                         .password(request.getPassword())
                 .build()
         );
-        String token = jwtService.generateToken(request.getUsername());
+        String token = jwtService.createJwt(savedUser.getId());
         userAuthRepository.save(
                 UserAuth.builder()
                         .userId(savedUser.getId())
@@ -75,7 +75,7 @@ public class AuthService {
             return new ResponseEntity<>(response, HttpStatus.UNAUTHORIZED);
         }
 
-        String token = jwtService.generateToken(request.getUsername());
+        String token = jwtService.createJwt(user.get().getId());
         userAuthRepository.save(UserAuth.builder()
                         .userId(user.get().getId())
                         .updatedAt(LocalDateTime.now())
