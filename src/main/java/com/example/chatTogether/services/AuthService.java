@@ -51,6 +51,7 @@ public class AuthService {
         userAuthRepository.save(
                 UserAuth.builder()
                         .userId(savedUser.getId())
+                        .createdAt(LocalDateTime.now())
                         .expiryTime(LocalDateTime.now().plusDays(30))
                         .jwt(token)
                         .build()
